@@ -1,0 +1,95 @@
+body { 
+ font-family: Verdana, Tahoma, sans-serif;
+ font-size: 11px;
+ color: #000033;
+ text-decoration: none;
+ margin-left: 15%;
+ margin-right: 15%;
+ background: #f5ede0;
+}
+.img 
+{
+	border: 0px;
+	text-decoration: none;
+	border-style: none;
+}
+A 
+{
+
+    font-size: 16px;
+    color: #000033;
+	text-decoration: none;
+}
+A:hover 
+{
+	color: #CC0000;
+	text-decoration: none;
+}
+.bigger 
+{
+	font-size: 16px;
+}
+.glowny 
+{
+
+	width: 400px;
+	font-size: 11px;
+	color: #000033;
+	text-decoration: none;
+	padding: 10px;
+	position: relative;
+	background: #9bc7f6;
+	border: 1px solid ;
+	margin-left: auto;
+	margin-right: auto;
+}
+.footer {
+
+	width: 200px;
+	font-size: 11px;
+	color: #000033;
+	text-decoration: none;
+	padding: 10px;
+	position: relative;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+.admin
+{
+	width: 400px;
+	font-size: 11px;
+	color: #000033;
+	text-decoration: none;
+	padding: 10px;
+	position: relative;
+	background: #9bc7f6;
+	border: 1px solid ;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+.wypisz
+{
+	font-size: 11px;
+	color: #000033;
+	text-decoration: none;
+	padding: 10px;
+	text-align: right !important;
+	background: #9bc7f6;
+	border: 1px solid ;
+}
+.biggerc
+{
+	font-size: 26px;
+	text-align: center;
+}
+
+.txt
+{
+	width: 552px;
+	height: 420px;
+	background-image:url('images/grunge_porfolio_03.jpg');
+	font-size: 18px;
+	text-align: center;
+}
