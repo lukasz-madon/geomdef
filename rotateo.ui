@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>rotateo</class>
+ <widget class="QDialog" name="rotateo">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>646</width>
+    <height>346</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Rotate</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" rowspan="10">
+    <widget class="QGraphicsView" name="graphicsView"/>
+   </item>
+   <item row="8" column="1">
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="text">
+      <string>OK</string>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="1">
+    <widget class="QPushButton" name="pushButton">
+     <property name="text">
+      <string>Cancel</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QDial" name="dial">
+     <property name="maximum">
+      <number>90</number>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1">
+    <widget class="QDial" name="dial_2">
+     <property name="maximum">
+      <number>90</number>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="1">
+    <widget class="QDial" name="dial_3">
+     <property name="maximum">
+      <number>90</number>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="1">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Z Angle:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>Y Angle:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLabel" name="label_4">
+     <property name="text">
+      <string>Rotation around Axis:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QLabel" name="label_3">
+     <property name="text">
+      <string>X Angle:</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
