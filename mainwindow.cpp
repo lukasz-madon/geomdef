@@ -98,6 +98,7 @@ void MainWindow::loadFile()
 
 void MainWindow::saveFile(){
 image.save(currentFileName,currentFileType.toLocal8Bit());
+isModifed=false;
 
 }
 void MainWindow::saveFileAs(){
@@ -129,6 +130,7 @@ void MainWindow::saveFileAs(){
     }
 
      writeStat = image.save(fileName,fileType.toLocal8Bit());
+     isModifed=false;
     }
     // if (writeStat==false)
    // {
