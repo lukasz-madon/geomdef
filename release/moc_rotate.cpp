@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'rotate.h'
 **
-** Created: Sun 24. Jan 01:29:11 2010
+** Created: Sun 24. Jan 15:53:57 2010
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -35,17 +35,17 @@ static const uint qt_meta_data_rotate[] = {
       33,    7,    7,    7, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      53,    7,    7,    7, 0x0a,
-      69,    7,    7,    7, 0x0a,
-      90,   84,    7,    7, 0x08,
-     116,    7,    7,    7, 0x08,
+      59,   53,    7,    7, 0x0a,
+      75,    7,    7,    7, 0x0a,
+      96,   90,    7,    7, 0x08,
+     122,    7,    7,    7, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_rotate[] = {
     "rotate\0\0angle\0CloseSignalOK(int)\0"
-    "CloseSignalCancel()\0rotateSlot(int)\0"
+    "CloseSignalCancel()\0alpha\0rotateSlot(int)\0"
     "rotateOKSlot()\0value\0on_dial_valueChanged(int)\0"
     "on_pushButton_clicked()\0"
 };

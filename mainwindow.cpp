@@ -94,7 +94,7 @@ void MainWindow::loadFile()
 
                 this->activateMenu();
                 loadImage();
-                std::cout<<currentFileType.toStdString()<<std::endl;
+                //std::cout<<currentFileType.toStdString()<<std::endl;
                 // abc = new skewdialog(image,this);
             }
     }
