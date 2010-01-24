@@ -1,10 +1,10 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// \file transform.h
-/// \author
-/// \author
-/// \version
-/// \date
-/// \brief
+/// \author Lukasz Madon
+/// \author 7madon@novell.ftj.agh.edu.pl OR lukasgt@wp.pl
+/// \version 1.0.1
+/// \date 16-01-2010
+/// \brief Deklaracja klasy Transform, interfejs . Plik naglowkowy.
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef TRANSFORM_H
@@ -15,7 +15,7 @@
 
 /////////////////////////////////////////////////////////////////////////
 /// \class Transform
-/// Klasa definujaca szybka transformacje obrazka.
+/// \brief Klasa definujaca szybka transformacje obrazka.
 /////////////////////////////////////////////////////////////////////////
 class Transform
 {
@@ -26,7 +26,7 @@ public:
     Transform();
 
     /////////////////////////////////////////////////////////////////////////
-    /// virtualny destruktor
+    /// Virtualny destruktor
     /////////////////////////////////////////////////////////////////////////
     virtual ~Transform();
 
@@ -36,7 +36,8 @@ public:
     /// \param outImage wskaznik na obrazek ktory zostal przetransformowany
     /// \param matrix macierz transformacji
     /////////////////////////////////////////////////////////////////////////
-    void trans(QImage* inImage, QImage* outImage, QGenericMatrix<3,3,qreal> matrix);
+    virtual void trans(QImage* inImage, QImage* outImage, QGenericMatrix<3,3,qreal> matrix);
+
 };
 
 #endif // TRANSFORM_H

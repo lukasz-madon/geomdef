@@ -1,6 +1,8 @@
 #include "skewdialog.h"
 #include "ui_skewdialog.h"
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////
 skewdialog::skewdialog(QImage* img, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::skewdialog)
@@ -17,6 +19,7 @@ tmp = img->scaled(QSize(200,200),Qt::KeepAspectRatio);
 
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 skewdialog::~skewdialog()
 {
     delete ui;
@@ -24,6 +27,7 @@ skewdialog::~skewdialog()
     delete scene;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void skewdialog::changeEvent(QEvent *e)
 {
     QDialog::changeEvent(e);
@@ -36,6 +40,7 @@ void skewdialog::changeEvent(QEvent *e)
     }
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void skewdialog::on_dial_valueChanged(int value)
 {
     clearScene();
@@ -48,6 +53,7 @@ void skewdialog::on_dial_valueChanged(int value)
 
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void skewdialog::on_dial_2_valueChanged(int value)
 {
       clearScene();
@@ -57,6 +63,7 @@ void skewdialog::on_dial_2_valueChanged(int value)
      angleY = value;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void skewdialog::on_pushButton_2_clicked()
 {
     close();
@@ -64,6 +71,7 @@ void skewdialog::on_pushButton_2_clicked()
 
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void skewdialog::clearScene(){
 
     QList<QGraphicsItem *> list = scene->items();
@@ -81,6 +89,7 @@ scene = new QGraphicsScene();
 
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void skewdialog::on_pushButton_clicked()
 {
     emit CloseSignalCancel();

@@ -16,13 +16,14 @@
 
 /////////////////////////////////////////////////////////////////////////
 /// \class Skew
-/// Klasa definujaca pochylenie obrazka. Dziedzyczy po klasie Transform.
+/// \brief Klasa definujaca pochylenie obrazka. Dziedzyczy po klasie Transform.
 /////////////////////////////////////////////////////////////////////////
 class Skew : public Transform
 {
 public:   
    /////////////////////////////////////////////////////////////////////////
-   /// Kostruktor domyslny.
+   /// Skew
+   /// \brief Kostruktor domyslny.
    /////////////////////////////////////////////////////////////////////////
    Skew();
 
@@ -32,29 +33,35 @@ public:
    ~Skew();
 
    /////////////////////////////////////////////////////////////////////////
-   /// Metoda skewImage odpowiada za pochylenie obrazka.
+   /// skewImage
+   /// \brief Metoda skewImage odpowiada za pochylenie obrazka.
    /// \param newImage wskaznik na obrazek ktory bedzie pochylany.
-   /// \param valx wartosc pochylenia wzgledem osi x od 0 do 100.
-   /// \param valy wartosc pochylenia wzgledem osi y od 0 do 100.
-   /// \return Zwraca obrazek po pochyleniu jako wskaznik do QImage.
+   /// \param valx wartosc pochylenia wzgledem osi x od 0 do 50.
+   /// \param valy wartosc pochylenia wzgledem osi y od 0 do 50.
+   /// \return Zwraca obrazek po pochyleniu jako obiekt QImage.
    /////////////////////////////////////////////////////////////////////////
    QImage skewImage(QImage *newImage, int valx, int valy);
 
    /////////////////////////////////////////////////////////////////////////
-   /// Metoda skewImageTwo odpowiada za pochylenie obrazka.
+   /// skewImageTwo
+   /// \brief Metoda skewImageTwo odpowiada za pochylenie obrazka.
    /// \param newImage wskaznik na obrazek ktory bedzie pochylany.
-   /// \param valx wartosc pochylenia wzgledem osi x od -50 do 50.
-   /// \param valy wartosc pochylenia wzgledem osi y od -50 do 50.
-   /// \return Zwraca obrazek po pochyleniu jako wskaznik do QImage.
+   /// \param valx wartosc pochylenia wzgledem osi x od 0 do 50.
+   /// \param valy wartosc pochylenia wzgledem osi y od 0 do 50.
+   /// \return Zwraca obrazek po pochyleniu jako obiekt QImage.
    /////////////////////////////////////////////////////////////////////////
    QImage skewImageTwo(QImage *newImage, int valx, int valy);
 
 private:
    /////////////////////////////////////////////////////////////////////////
-   /// tablica do inicializacji macierzy.
+   // tablica do inicializacji macierzy.
    /////////////////////////////////////////////////////////////////////////
    qreal tab[9];
-QImage outImg;
+
+   /////////////////////////////////////////////////////////////////////////
+   // Wyjsciowy obrazek
+   /////////////////////////////////////////////////////////////////////////
+   QImage outImg;
 
 
 };

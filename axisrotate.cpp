@@ -2,6 +2,8 @@
 #include <QGenericMatrix>
 #include <cmath>
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////
 AxisRotate::AxisRotate(const QImage &im, const int newW, const int newH): image(im)
 {
 mx.fill(0.0);
@@ -38,14 +40,17 @@ per(3,2) = 1.0/-200.0;
 
 }
 
-AxisRotate::~AxisRotate() {
+////////////////////////////////////////////////////////////////////////////////////////////////
+AxisRotate::~AxisRotate()
+{
   //  if(rotatedImage != NULL) { delete rotatedImage;}
 }
 
- QImage AxisRotate::setX(int x) {
-
-     double rx = static_cast<double>(x)*M_PI/180.0;
-xp = x;
+////////////////////////////////////////////////////////////////////////////////////////////////
+ QImage AxisRotate::setX(int x)
+ {
+    double rx = static_cast<double>(x)*M_PI/180.0;
+    xp = x;
     mx(0,0) = mx(3,3) = 1;
     mx(1,1) = mx(2,2) = cos(rx);
     mx(2,1) = sin(rx);
@@ -54,10 +59,11 @@ xp = x;
 return translate();
 }
 
- QImage AxisRotate::setY(int y) {
-
+ ////////////////////////////////////////////////////////////////////////////////////////////////
+ QImage AxisRotate::setY(int y)
+ {
      double ry = static_cast<double>(y)*M_PI/180.0;
-yp = y;
+     yp = y;
      my(1,1) = my(3,3) = 1;
      my(0,0) = my(2,2) = cos(ry);
      my(0,2) = sin(ry);
@@ -65,10 +71,11 @@ yp = y;
 return translate();
 }
 
- QImage AxisRotate::setZ(int z) {
-
+ ////////////////////////////////////////////////////////////////////////////////////////////////
+ QImage AxisRotate::setZ(int z)
+ {
      double rz = static_cast<double>(z)*M_PI/180.0;
-zp = z;
+     zp = z;
      mz(0,0) = mz(1,1) = cos(rz);
      mz(0,1) = -sin(rz);
      mz(1,0) = -mz(0,1);
@@ -77,17 +84,17 @@ zp = z;
 return translate();//const_cast<QImage>(image);
 }
 
- QImage AxisRotate::translate() {
-
-
+ ////////////////////////////////////////////////////////////////////////////////////////////////
+ QImage AxisRotate::translate()
+ {
 
       const int w = image.width(), h = image.height();
-      const uchar *imageData = image.bits();
+      //const uchar *imageData = image.bits();
 
       rotatedImage = QImage((int)nw,(int)nh,QImage::Format_RGB32);
 
        //const int wr = rotatedImage->width(), hr = rotatedImage->height();
-       uchar *rotatedImageData = rotatedImage.bits();
+       //uchar *rotatedImageData = rotatedImage.bits();
 
        outcome = minusTran*mx*my*mz*tran;//*tran;
        // mx = minusTran*mx;
@@ -152,6 +159,6 @@ return translate();//const_cast<QImage>(image);
                  }
    }
 */
-return rotatedImage;
-  }
+ return rotatedImage;
+}
 

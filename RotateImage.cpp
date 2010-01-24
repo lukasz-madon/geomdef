@@ -3,6 +3,7 @@
 #include <QImage>
 #include <cmath>
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 RotateImage::RotateImage(const QImage &im,QWidget *parent) : w(im.width()), h(im.height()),image(im)
 {
     matrix.fill(0.0);
@@ -15,9 +16,9 @@ RotateImage::RotateImage(const QImage &im,QWidget *parent) : w(im.width()), h(im
 //    rotatedImage = NULL;
 
     imageData = image.bits();
-
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 RotateImage::~RotateImage() {
 
    // if(rotatedImage != NULL) {
@@ -26,6 +27,7 @@ RotateImage::~RotateImage() {
    // }
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 QImage  RotateImage::rotateAnyPoint(const qreal alpha, const qreal x, const qreal y, const int sw, const int sh) {
 
     
@@ -52,7 +54,8 @@ QImage  RotateImage::rotateAnyPoint(const qreal alpha, const qreal x, const qrea
 
     /*Wektor*/
 
-    for(int k=0,j=0,i=0;k<sw*sh*4;k+=4,++i) {
+    for(int k=0,j=0,i=0;k<sw*sh*4;k+=4,++i)
+    {
 
         if(i==sw) {
             i = 0;
@@ -68,21 +71,25 @@ QImage  RotateImage::rotateAnyPoint(const qreal alpha, const qreal x, const qrea
         rawResult[0] = matrix(0,0)*rawVec[0]+matrix(0,1)*rawVec[1]+matrix(0,2)*rawVec[2];
         rawResult[1] = matrix(1,0)*rawVec[0]+matrix(1,1)*rawVec[1]+matrix(1,2)*rawVec[2];
 
-        if(rawResult[0] < w && rawResult[0] >= 0 && rawResult[1] < h && rawResult[1] >= 0) {
+        if(rawResult[0] < w && rawResult[0] >= 0 && rawResult[1] < h && rawResult[1] >= 0)
+        {
 
            int tmp = (static_cast<int>(rawResult[1])*w+static_cast<int>(rawResult[0]))*4;
 
                rotatedImageData[k]   = imageData[tmp];
                rotatedImageData[k+1] = imageData[tmp+1];
                rotatedImageData[k+2] = imageData[tmp+2];
-        } else {
-                rotatedImageData[k] = rotatedImageData[k+1] = rotatedImageData[k+2] = 255;
-               }
- }
-    return rotatedImage;
+        }
+        else
+        {
+               rotatedImageData[k] = rotatedImageData[k+1] = rotatedImageData[k+2] = 255;
+        }
+    }
+   return rotatedImage;
     
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Funkcja obracajaca zdjecie o dany kat
 QImage RotateImage::rotateCutBackground(const qreal alpha) {
 
@@ -145,17 +152,20 @@ QImage RotateImage::rotateCutBackground(const qreal alpha) {
             rawResult[1] = matrix(1,0)*rawVec[0]+matrix(1,1)*rawVec[1];
 
 
-        if(rawResult[0] < w && rawResult[0] >= 0 && rawResult[1] < h && rawResult[1] >= 0) {
+        if(rawResult[0] < w && rawResult[0] >= 0 && rawResult[1] < h && rawResult[1] >= 0)
+            {
 
             tmp = (static_cast<int>(rawResult[1])*w+static_cast<int>(rawResult[0]))*4;
 
                rotatedImageData[k]   = imageData[tmp];
                rotatedImageData[k+1] = imageData[tmp+1];
                rotatedImageData[k+2] = imageData[tmp+2];
-        } else {
+            }
+            else
+            {
                 rotatedImageData[k] = rotatedImageData[k+1] = rotatedImageData[k+2] = 194;
-               }
- }
-    return rotatedImage;
+            }
+    }
+   return rotatedImage;
 }
 

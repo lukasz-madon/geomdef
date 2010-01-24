@@ -14,9 +14,10 @@
 #include "rotateo.h"
 #include "about.h"
 
+//#include <iostream>
 
-#include <iostream>
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -30,11 +31,13 @@ MainWindow::MainWindow(QWidget *parent) :
 
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::changeEvent(QEvent *e)
 {
     QMainWindow::changeEvent(e);
@@ -46,6 +49,8 @@ void MainWindow::changeEvent(QEvent *e)
         break;
     }
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::loadFile()
         {
             QString selectedFilter;
@@ -81,13 +86,11 @@ void MainWindow::loadFile()
                 if(scene!=NULL) {clearScene();  delete scene; scene=NULL;}
                 scene = new QGraphicsScene();
 
-
             //    scene.clear();
               //   ui->graphicsView->setScene(&scene);
                  scene->addPixmap(QPixmap::fromImage(this->image));
                   ui->graphicsView->setScene(scene);
                 isImageLoaded=true;
-
 
                 this->activateMenu();
                 loadImage();
@@ -96,11 +99,14 @@ void MainWindow::loadFile()
             }
     }
 
-void MainWindow::saveFile(){
-image.save(currentFileName,currentFileType.toLocal8Bit());
-isModifed=false;
-
+////////////////////////////////////////////////////////////////////////////////////////////////
+void MainWindow::saveFile()
+{
+    image.save(currentFileName,currentFileType.toLocal8Bit());
+    isModifed=false;
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::saveFileAs(){
 
 
@@ -139,6 +145,8 @@ void MainWindow::saveFileAs(){
    // }
 
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::clearImage(){
 
     if(isModifed==true){
@@ -160,6 +168,8 @@ void MainWindow::clearImage(){
 
 
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::print(){
     QPrinter printer;
     if (QPrintDialog(&printer).exec() == QDialog::Accepted) {
@@ -167,13 +177,15 @@ void MainWindow::print(){
         painter.setRenderHint(QPainter::Antialiasing);
         scene->render(&painter);
 
-    }}
+    }
+}
 
-
+////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::exit(){
     close();
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::activateMenu(){
 
     if(isImageLoaded==true)
@@ -196,6 +208,7 @@ void MainWindow::activateMenu(){
 
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::loadImage()
 {
 
@@ -255,17 +268,19 @@ void MainWindow::loadImage()
 
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow:: zoomIn()
 {
     ui->graphicsView->scale(1.2, 1.2);
-
-
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow:: zoomOut()
 {
     ui->graphicsView->scale(1/1.2,1/1.2);
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow:: rotateDialog()
 {
      if(isImageLoaded==true){
@@ -275,9 +290,10 @@ void MainWindow:: rotateDialog()
     connect(rotateWindow,SIGNAL(CloseSignalCancel()),this,SLOT(rotateImageCloseCancel()));
     rotateWindow->setModal(true);
     rotateWindow->show();
-}
+ }
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow:: rotateoDialog()
 {
     if(isImageLoaded==true){
@@ -290,6 +306,7 @@ void MainWindow:: rotateoDialog()
 }
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::skewd()
 {
      if(isImageLoaded==true){
@@ -303,6 +320,7 @@ void MainWindow::skewd()
 
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::rotateImageCloseOK(int angle) {
 
 this->clearScene();
@@ -322,10 +340,12 @@ isModifed=true;
     delete rotateWindow;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::rotateImageCloseCancel() {
     delete rotateWindow;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::axisRotateImageCloseOK(int xp, int yp, int zp){
 
 
@@ -346,13 +366,17 @@ void MainWindow::axisRotateImageCloseOK(int xp, int yp, int zp){
       delete axisRotateWindow;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::axisRotateImageCloseCancel(){
  delete axisRotateWindow;
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::resizeEvent( QResizeEvent * ){
 loadImage();
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::openHelp(){
     QString dir("file:///") ;
     dir.append(QDir::currentPath());
@@ -362,9 +386,13 @@ void MainWindow::openHelp(){
     QDesktopServices::openUrl(QUrl(tr(dir.toLocal8Bit())));
 
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::openWeb(){
  QDesktopServices::openUrl(QUrl("http://code.google.com/p/geomdef/", QUrl::TolerantMode));
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::aboutInfo(){
 
     if(aboutWindow==NULL){
@@ -376,6 +404,7 @@ void MainWindow::aboutInfo(){
 
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::skewCloseOK(int angleX, int angleY){
 
     clearScene();
@@ -391,11 +420,14 @@ void MainWindow::skewCloseOK(int angleX, int angleY){
     isModifed=true;
     delete skewWindow;
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::skewCloseCancel(){
 
 delete skewWindow;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::clearScene(){
 
     QList<QGraphicsItem *> list = scene->items();
@@ -413,6 +445,7 @@ void MainWindow::clearScene(){
 
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::closeEvent(QCloseEvent *){
     if(isModifed==true){
     switch( QMessageBox::warning( this,"Geomdef","Czy chcesz zapisac zmiany?",

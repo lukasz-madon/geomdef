@@ -5,8 +5,11 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "axisrotate.h"
+
 #include <cmath>
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////
 rotateo::rotateo(QImage* img, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::rotateo)
@@ -26,7 +29,7 @@ rotateo::rotateo(QImage* img, QWidget *parent) :
 
 }
 
-
+////////////////////////////////////////////////////////////////////////////////////////////////
 rotateo::~rotateo()
 {
     delete ui;
@@ -34,6 +37,7 @@ rotateo::~rotateo()
      delete scene;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void rotateo::changeEvent(QEvent *e)
 {
     QDialog::changeEvent(e);
@@ -46,12 +50,14 @@ void rotateo::changeEvent(QEvent *e)
     }
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void rotateo::on_pushButton_clicked()
 {
     close();
     emit CloseSignalCancel();
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void rotateo::on_dial_valueChanged(int value)
 {
      clearScene();
@@ -60,6 +66,7 @@ void rotateo::on_dial_valueChanged(int value)
      ui->graphicsView->setScene(scene);
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void rotateo::on_dial_2_valueChanged(int value)
 {
     clearScene();
@@ -67,6 +74,7 @@ void rotateo::on_dial_2_valueChanged(int value)
      ui->graphicsView->setScene(scene);
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void rotateo::on_dial_3_valueChanged(int value)
 {
     clearScene();
@@ -74,12 +82,15 @@ void rotateo::on_dial_3_valueChanged(int value)
      ui->graphicsView->setScene(scene);
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 void rotateo::on_pushButton_3_clicked()
 {
 
     close();
     emit CloseSignalOK(rimg->xp,rimg->yp, rimg->zp);
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////
 void rotateo::clearScene(){
 
     QList<QGraphicsItem *> list = scene->items();
