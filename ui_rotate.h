@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'rotate.ui'
 **
-** Created: Sun 24. Jan 01:30:33 2010
+** Created: Tue 26. Jan 01:16:58 2010
 **      by: Qt User Interface Compiler version 4.6.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
