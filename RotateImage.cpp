@@ -2,6 +2,9 @@
 
 #include <QImage>
 #include <cmath>
+#include <QColor>
+
+//#include
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 RotateImage::RotateImage(const QImage &im,QWidget *parent) : w(im.width()), h(im.height()),image(im)
@@ -16,6 +19,8 @@ RotateImage::RotateImage(const QImage &im,QWidget *parent) : w(im.width()), h(im
 //    rotatedImage = NULL;
 
     imageData = image.bits();
+
+    interp = new Interpolation(&image);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -133,7 +138,7 @@ QImage RotateImage::rotateCutBackground(const qreal alpha) {
     matrix(0,1) = -matrix(1,0);
     matrix(2,2) = 1;
 
-    int tmp;
+    //int tmp;
 
     for(int k=0,j=0,i=0;k<wr*hr*4;k+=4,++i) {
 
@@ -155,11 +160,12 @@ QImage RotateImage::rotateCutBackground(const qreal alpha) {
         if(rawResult[0] < w && rawResult[0] >= 0 && rawResult[1] < h && rawResult[1] >= 0)
             {
 
-            tmp = (static_cast<int>(rawResult[1])*w+static_cast<int>(rawResult[0]))*4;
+             rgb = interp->getHorizontal(rawResult[0],rawResult[1]);
 
-               rotatedImageData[k]   = imageData[tmp];
-               rotatedImageData[k+1] = imageData[tmp+1];
-               rotatedImageData[k+2] = imageData[tmp+2];
+            //tmp = (static_cast<int>(rawResult[1])*w+static_cast<int>(rawResult[0]))*4;
+             rotatedImageData[k]   = qBlue(rgb);//imageData[tmp];
+             rotatedImageData[k+1] = qGreen(rgb);//imageData[tmp+1];
+             rotatedImageData[k+2] = qRed(rgb);//imageData[tmp+2];
             }
             else
             {

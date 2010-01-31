@@ -14,6 +14,8 @@
 #include "rotateo.h"
 #include "about.h"
 
+#include "barreldialog.h"
+
 //#include <iostream>
 
 
@@ -28,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent) :
    scene=NULL;
    aboutWindow=NULL;
 
+   this->interp = new Interpolation(&image);
 
 }
 
@@ -35,6 +38,7 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete interp;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -281,7 +285,7 @@ void MainWindow:: zoomOut()
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
-void MainWindow:: rotateDialog()
+void MainWindow::rotateDialog()
 {
      if(isImageLoaded==true){
     rotateWindow = new rotate(&image,this);
@@ -294,7 +298,7 @@ void MainWindow:: rotateDialog()
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
-void MainWindow:: rotateoDialog()
+void MainWindow::rotateoDialog()
 {
     if(isImageLoaded==true){
     axisRotateWindow = new rotateo(&image,this);
@@ -445,6 +449,11 @@ void MainWindow::clearScene(){
 
 }
 
+void MainWindow::barelCorrectionSlot() {
+
+
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::closeEvent(QCloseEvent *){
     if(isModifed==true){
@@ -457,5 +466,87 @@ void MainWindow::closeEvent(QCloseEvent *){
 
         break;
     }}
+
+}
+
+void MainWindow::on_actionBarrel_correction_activated()
+{
+
+    if(isImageLoaded==true){
+   this->bdialog = new barreldialog(&image,this);
+
+   connect(bdialog,SIGNAL(CloseSignalOk(qreal,qreal,qreal,qreal)),this,SLOT(barrelSignalOK(qreal,qreal,qreal,qreal)));
+     connect(bdialog,SIGNAL(CloseSignalCancel()),this,SLOT(barrelSignalCancel()));
+    bdialog->setModal(true);
+    bdialog->show();
+    }
+
+}
+
+void MainWindow::barrelSignalCancel() {
+
+    delete bdialog;
+
+}
+
+void MainWindow::barrelSignalOK(qreal a1, qreal b1, qreal c1, qreal d1) {
+
+    qreal b[4] = {a1,b1,c1,d1};
+    qreal x, y;
+    qreal rs= 0, rd =0, fi=0;
+
+    qreal width = image.width();
+    qreal height = image.height();
+
+    qreal rmax = sqrt((width/2.0)*(width/2.0)+(height/2.0)*(height/2.0));
+    //const qreal sqrt2 = 1.41421356;
+
+    // co do interpolacji to tu chyba trzeba ARGB. nie jestem pewnien
+    // wydaje mi sie ze trzeba zrobic tlo czarne dodatkowo bo graphicview jest niskopizomowo
+    // catchowany zeby szybciej renderowal
+       QImage outImg(width,height,QImage::Format_RGB32);
+       //wywalic to jak jest tlo i interpolacja
+       outImg.fill(0);
+
+    // magia beczki i poduszki
+       for(int j=0;j<height;++j)
+       {
+           for(int i=0;i<width;++i)
+           {
+                rs = sqrt((i-width/2.0)*(i-width/2.0)+(j-height/2.0)*(j-height/2.0))/rmax;
+                rd = (b[0] * rs * rs * rs + b[1] * rs * rs + b[2] * rs + b[3]) * rs;
+                             // if((i-width/2.0)!=0)
+                fi = atan2(j-height/2.0,i-width/2.0);         //std::cout << rd << std::endl;
+
+                x = rmax * rd * cos(fi) + width/2.0 + 0.5;
+                y = rmax * rd * sin(fi) + height/2.0 + 0.5;
+                if(x < width && y < height && x >= 0 && y >= 0 )
+                {
+                    rgb = interp->getHorizontal(x,y);
+                    outImg.setPixel(static_cast<int>(i),static_cast<int>(j),rgb);
+                }
+           }
+       }
+       // czyszcze scene
+    clearScene();
+    // tu jest dodawnanie na srodek. ustawienie sceny tamze. do wyjebania
+   // scene.setSceneRect(ui->graphicsView->width()/2-width/2,ui->graphicsView->height()-height/2,width,height);
+   // scene.setSceneRect(0,0,200,200);
+    //dodaje do scene wynik
+     // scene->addPixmap(QPixmap::fromImage(outImg));
+
+      image = outImg;
+
+     //  clearScene();
+       delete scene;
+       scene = new QGraphicsScene();
+
+       scene->addPixmap(QPixmap::fromImage(image));
+        ui->graphicsView->setScene(scene);
+         this->loadImage();
+       isModifed=true;
+
+
+
 
 }

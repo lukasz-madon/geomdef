@@ -12,7 +12,10 @@ SOURCES += main.cpp \
     about.cpp \
     transform.cpp \
     skewdialog.cpp \
-    Skew.cpp
+    Skew.cpp \
+    interpolation.cpp \
+    barreldialog.cpp \
+    ControllerXML.cpp
 HEADERS += mainwindow.h \
     rotate.h \
     rotateo.h \
@@ -22,11 +25,16 @@ HEADERS += mainwindow.h \
     transform.h \
     about.h \
     skewdialog.h \
-    Skew.h
+    Skew.h \
+    interpolation.h \
+    barreldialog.h \
+    ControllerXML.h
 FORMS += mainwindow.ui \
     rotate.ui \
     rotate.ui \
     rotateo.ui \
     about.ui \
-    skewdialog.ui
+    skewdialog.ui \
+    barreldialog.ui
 RESOURCES += reso.qrc
+QT += xml

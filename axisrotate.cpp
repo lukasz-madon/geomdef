@@ -2,7 +2,6 @@
 #include <QGenericMatrix>
 #include <cmath>
 
-
 ////////////////////////////////////////////////////////////////////////////////////////////////
 AxisRotate::AxisRotate(const QImage &im, const int newW, const int newH): image(im)
 {
@@ -113,13 +112,14 @@ return translate();//const_cast<QImage>(image);
            vec = move*vec;
         //   vec = per*vec;
 
+         //   rgb = interp->getHorizontal(i,j);
       //     vec(0,0) *= 1/vec(3,0);
        //    vec(1,0) *= 1/vec(3,0);
           //  rotatedImage->setPixel(i,j,qRgb(0,0,0));
        //    vec = per*vec;
-           if(vec(0,0) < nw && vec(0,0) >= 0 && vec(1,0) < nh && vec(1,0) >= 0)
-                rotatedImage.setPixel(vec(0,0),vec(1,0),image.pixel((int)i,(int)j));
-
+           if(vec(0,0) < nw && vec(0,0) >= 0 && vec(1,0) < nh && vec(1,0) >= 0) {
+                rotatedImage.setPixel(vec(0,0),vec(1,0),image.pixel(i,j));
+            }
        //    } else {
 
            //if()

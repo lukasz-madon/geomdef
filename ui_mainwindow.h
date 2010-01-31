@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Sun 24. Jan 03:23:27 2010
+** Created: Sun 31. Jan 21:29:31 2010
 **      by: Qt User Interface Compiler version 4.6.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -48,6 +48,7 @@ public:
     QAction *actionAbout;
     QAction *actionF;
     QAction *actionE;
+    QAction *actionBarrel_correction;
     QWidget *centralWidget;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_3;
@@ -83,6 +84,7 @@ public:
         actionZoom_Out->setIcon(icon2);
         actionRotate = new QAction(MainWindow);
         actionRotate->setObjectName(QString::fromUtf8("actionRotate"));
+        actionRotate->setCheckable(true);
         actionRotate->setEnabled(true);
         QIcon icon3;
         icon3.addFile(QString::fromUtf8(":/image/icons/pointrot.png"), QSize(), QIcon::Normal, QIcon::Off);
@@ -153,6 +155,8 @@ public:
         actionE = new QAction(MainWindow);
         actionE->setObjectName(QString::fromUtf8("actionE"));
         actionE->setCheckable(true);
+        actionBarrel_correction = new QAction(MainWindow);
+        actionBarrel_correction->setObjectName(QString::fromUtf8("actionBarrel_correction"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         verticalLayout = new QVBoxLayout(centralWidget);
@@ -210,6 +214,7 @@ public:
         menuEdit->addAction(actionRotate);
         menuEdit->addAction(actionRotate_1);
         menuEdit->addAction(actionSkew);
+        menuEdit->addAction(actionBarrel_correction);
         menuHelp->addAction(actionGeomdef_Help);
         menuHelp->addAction(actionWeb_Site);
         menuHelp->addSeparator();
@@ -266,6 +271,7 @@ public:
         actionAbout->setText(QApplication::translate("MainWindow", "About", 0, QApplication::UnicodeUTF8));
         actionF->setText(QApplication::translate("MainWindow", "f", 0, QApplication::UnicodeUTF8));
         actionE->setText(QApplication::translate("MainWindow", "e", 0, QApplication::UnicodeUTF8));
+        actionBarrel_correction->setText(QApplication::translate("MainWindow", "Barrel correction", 0, QApplication::UnicodeUTF8));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", 0, QApplication::UnicodeUTF8));
         menuView->setTitle(QApplication::translate("MainWindow", "View", 0, QApplication::UnicodeUTF8));
         menuEdit->setTitle(QApplication::translate("MainWindow", "Edit", 0, QApplication::UnicodeUTF8));

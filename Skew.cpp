@@ -77,6 +77,8 @@ QImage Skew::skewImage(QImage *newImage,  int valx, int valy)
 //////////////////////////////////////////////////////////////////////////
 QImage Skew::skewImageTwo(QImage *newImage, int valx, int valy)
 {
+    
+    
     // wspolrzedne pkt docelowego
     qreal x,y;
 
@@ -103,8 +105,12 @@ QImage Skew::skewImageTwo(QImage *newImage, int valx, int valy)
         {
             x=tab[0]*i+tab[3]*j;
             y=tab[1]*i+tab[4]*j;
-            if(x < outWidth && y < outHeight && x > 0 && y > 0)
-            outImg.setPixel(x,y,newImage->pixel(i,j));
+            if(x < outWidth && y < outHeight && x > 0 && y > 0) {
+       
+                outImg.setPixel(x,y,newImage->pixel(i,j));
+
+            }
+
         }
     }
     // zwracamy wskaznik do pochylonego obrazka
