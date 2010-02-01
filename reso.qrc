@@ -15,5 +15,6 @@
         <file>icons/gohome.png</file>
         <file>icons/help.png</file>
         <file>icons/mail_generic.png</file>
+        <file>icons/stock-tool-perspective-clone-22.png</file>
     </qresource>
 </RCC>

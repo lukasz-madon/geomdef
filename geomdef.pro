@@ -23,14 +23,12 @@ HEADERS += mainwindow.h \
     axisrotate.h \
     about.h \
     transform.h \
-    about.h \
     skewdialog.h \
     Skew.h \
     interpolation.h \
     barreldialog.h \
     ControllerXML.h
 FORMS += mainwindow.ui \
-    rotate.ui \
     rotate.ui \
     rotateo.ui \
     about.ui \

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Sun 31. Jan 21:29:31 2010
+** Created: Mon 1. Feb 01:46:55 2010
 **      by: Qt User Interface Compiler version 4.6.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -157,6 +157,9 @@ public:
         actionE->setCheckable(true);
         actionBarrel_correction = new QAction(MainWindow);
         actionBarrel_correction->setObjectName(QString::fromUtf8("actionBarrel_correction"));
+        QIcon icon14;
+        icon14.addFile(QString::fromUtf8(":/image/icons/stock-tool-perspective-clone-22.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionBarrel_correction->setIcon(icon14);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         verticalLayout = new QVBoxLayout(centralWidget);
@@ -221,20 +224,20 @@ public:
         menuHelp->addAction(actionAbout);
 
         retranslateUi(MainWindow);
-        QObject::connect(actionOpen, SIGNAL(activated()), MainWindow, SLOT(loadFile()));
-        QObject::connect(actionZoom_In, SIGNAL(activated()), MainWindow, SLOT(zoomIn()));
-        QObject::connect(actionZoom_Out, SIGNAL(activated()), MainWindow, SLOT(zoomOut()));
-        QObject::connect(actionRotate, SIGNAL(activated()), MainWindow, SLOT(rotateDialog()));
-        QObject::connect(actionRotate_1, SIGNAL(activated()), MainWindow, SLOT(rotateoDialog()));
-        QObject::connect(actionSkew, SIGNAL(activated()), MainWindow, SLOT(skewd()));
-        QObject::connect(actionExit, SIGNAL(activated()), MainWindow, SLOT(exit()));
-        QObject::connect(actionSave, SIGNAL(activated()), MainWindow, SLOT(saveFile()));
-        QObject::connect(actionSave_As, SIGNAL(activated()), MainWindow, SLOT(saveFileAs()));
-        QObject::connect(actionPrint, SIGNAL(activated()), MainWindow, SLOT(print()));
-        QObject::connect(actionClose_Imege, SIGNAL(activated()), MainWindow, SLOT(clearImage()));
-        QObject::connect(actionAbout, SIGNAL(activated()), MainWindow, SLOT(aboutInfo()));
-        QObject::connect(actionGeomdef_Help, SIGNAL(activated()), MainWindow, SLOT(openHelp()));
-        QObject::connect(actionWeb_Site, SIGNAL(activated()), MainWindow, SLOT(openWeb()));
+        QObject::connect(actionOpen, SIGNAL(triggered()), MainWindow, SLOT(loadFile()));
+        QObject::connect(actionZoom_In, SIGNAL(triggered()), MainWindow, SLOT(zoomIn()));
+        QObject::connect(actionZoom_Out, SIGNAL(triggered()), MainWindow, SLOT(zoomOut()));
+        QObject::connect(actionRotate, SIGNAL(triggered()), MainWindow, SLOT(rotateDialog()));
+        QObject::connect(actionRotate_1, SIGNAL(triggered()), MainWindow, SLOT(rotateoDialog()));
+        QObject::connect(actionSkew, SIGNAL(triggered()), MainWindow, SLOT(skewd()));
+        QObject::connect(actionExit, SIGNAL(triggered()), MainWindow, SLOT(exit()));
+        QObject::connect(actionSave, SIGNAL(triggered()), MainWindow, SLOT(saveFile()));
+        QObject::connect(actionSave_As, SIGNAL(triggered()), MainWindow, SLOT(saveFileAs()));
+        QObject::connect(actionPrint, SIGNAL(triggered()), MainWindow, SLOT(print()));
+        QObject::connect(actionClose_Imege, SIGNAL(triggered()), MainWindow, SLOT(clearImage()));
+        QObject::connect(actionAbout, SIGNAL(triggered()), MainWindow, SLOT(aboutInfo()));
+        QObject::connect(actionGeomdef_Help, SIGNAL(triggered()), MainWindow, SLOT(openHelp()));
+        QObject::connect(actionWeb_Site, SIGNAL(triggered()), MainWindow, SLOT(openWeb()));
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
@@ -272,6 +275,7 @@ public:
         actionF->setText(QApplication::translate("MainWindow", "f", 0, QApplication::UnicodeUTF8));
         actionE->setText(QApplication::translate("MainWindow", "e", 0, QApplication::UnicodeUTF8));
         actionBarrel_correction->setText(QApplication::translate("MainWindow", "Barrel correction", 0, QApplication::UnicodeUTF8));
+        actionBarrel_correction->setShortcut(QApplication::translate("MainWindow", "Ctrl+S", 0, QApplication::UnicodeUTF8));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", 0, QApplication::UnicodeUTF8));
         menuView->setTitle(QApplication::translate("MainWindow", "View", 0, QApplication::UnicodeUTF8));
         menuEdit->setTitle(QApplication::translate("MainWindow", "Edit", 0, QApplication::UnicodeUTF8));

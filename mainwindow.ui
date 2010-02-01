@@ -94,7 +94,7 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionOpen">
    <property name="icon">
-    <iconset>
+    <iconset resource="reso.qrc">
      <normaloff>:/image/icons/fileopen.png</normaloff>:/image/icons/fileopen.png</iconset>
    </property>
    <property name="text">
@@ -109,7 +109,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset>
+    <iconset resource="reso.qrc">
      <normaloff>:/image/icons/zoomout.png</normaloff>:/image/icons/zoomout.png</iconset>
    </property>
    <property name="text">
@@ -121,7 +121,7 @@
   </action>
   <action name="actionZoom_Out">
    <property name="icon">
-    <iconset>
+    <iconset resource="reso.qrc">
      <normaloff>:/image/icons/zoomin.png</normaloff>:/image/icons/zoomin.png</iconset>
    </property>
    <property name="text">
@@ -139,7 +139,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset>
+    <iconset resource="reso.qrc">
      <normaloff>:/image/icons/pointrot.png</normaloff>:/image/icons/pointrot.png</iconset>
    </property>
    <property name="text">
@@ -151,7 +151,7 @@
   </action>
   <action name="actionRotate_1">
    <property name="icon">
-    <iconset>
+    <iconset resource="reso.qrc">
      <normaloff>:/image/icons/axisrot.png</normaloff>:/image/icons/axisrot.png</iconset>
    </property>
    <property name="text">
@@ -163,7 +163,7 @@
   </action>
   <action name="actionSkew">
    <property name="icon">
-    <iconset>
+    <iconset resource="reso.qrc">
      <normaloff>:/image/icons/skew.png</normaloff>:/image/icons/skew.png</iconset>
    </property>
    <property name="text">
@@ -186,7 +186,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset>
+    <iconset resource="reso.qrc">
      <normaloff>:/image/icons/filesave.png</normaloff>:/image/icons/filesave.png</iconset>
    </property>
    <property name="text">
@@ -201,7 +201,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset>
+    <iconset resource="reso.qrc">
      <normaloff>:/image/icons/filesaveas.png</normaloff>:/image/icons/filesaveas.png</iconset>
    </property>
    <property name="text">
@@ -216,7 +216,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset>
+    <iconset resource="reso.qrc">
      <normaloff>:/image/icons/fileprint.png</normaloff>:/image/icons/fileprint.png</iconset>
    </property>
    <property name="text">
@@ -239,7 +239,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset>
+    <iconset resource="reso.qrc">
      <normaloff>:/image/icons/editdelete.png</normaloff>:/image/icons/editdelete.png</iconset>
    </property>
    <property name="text">
@@ -248,7 +248,7 @@
   </action>
   <action name="actionExit">
    <property name="icon">
-    <iconset>
+    <iconset resource="reso.qrc">
      <normaloff>:/image/icons/exit.png</normaloff>:/image/icons/exit.png</iconset>
    </property>
    <property name="text">
@@ -260,7 +260,7 @@
   </action>
   <action name="actionGeomdef_Help">
    <property name="icon">
-    <iconset>
+    <iconset resource="reso.qrc">
      <normaloff>:/image/icons/help.png</normaloff>:/image/icons/help.png</iconset>
    </property>
    <property name="text">
@@ -269,7 +269,7 @@
   </action>
   <action name="actionWeb_Site">
    <property name="icon">
-    <iconset>
+    <iconset resource="reso.qrc">
      <normaloff>:/image/icons/gohome.png</normaloff>:/image/icons/gohome.png</iconset>
    </property>
    <property name="text">
@@ -278,7 +278,7 @@
   </action>
   <action name="actionAbout">
    <property name="icon">
-    <iconset>
+    <iconset resource="reso.qrc">
      <normaloff>:/image/icons/mail_generic.png</normaloff>:/image/icons/mail_generic.png</iconset>
    </property>
    <property name="text">
@@ -305,17 +305,26 @@
    </property>
   </action>
   <action name="actionBarrel_correction">
+   <property name="icon">
+    <iconset resource="reso.qrc">
+     <normaloff>:/image/icons/stock-tool-perspective-clone-22.png</normaloff>:/image/icons/stock-tool-perspective-clone-22.png</iconset>
+   </property>
    <property name="text">
     <string>Barrel correction</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
    </property>
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="reso.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>actionOpen</sender>
-   <signal>activated()</signal>
+   <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>loadFile()</slot>
    <hints>
@@ -331,7 +340,7 @@
   </connection>
   <connection>
    <sender>actionZoom_In</sender>
-   <signal>activated()</signal>
+   <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>zoomIn()</slot>
    <hints>
@@ -347,7 +356,7 @@
   </connection>
   <connection>
    <sender>actionZoom_Out</sender>
-   <signal>activated()</signal>
+   <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>zoomOut()</slot>
    <hints>
@@ -363,7 +372,7 @@
   </connection>
   <connection>
    <sender>actionRotate</sender>
-   <signal>activated()</signal>
+   <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>rotateDialog()</slot>
    <hints>
@@ -379,7 +388,7 @@
   </connection>
   <connection>
    <sender>actionRotate_1</sender>
-   <signal>activated()</signal>
+   <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>rotateoDialog()</slot>
    <hints>
@@ -395,7 +404,7 @@
   </connection>
   <connection>
    <sender>actionSkew</sender>
-   <signal>activated()</signal>
+   <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>skewd()</slot>
    <hints>
@@ -411,7 +420,7 @@
   </connection>
   <connection>
    <sender>actionExit</sender>
-   <signal>activated()</signal>
+   <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>exit()</slot>
    <hints>
@@ -427,7 +436,7 @@
   </connection>
   <connection>
    <sender>actionSave</sender>
-   <signal>activated()</signal>
+   <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>saveFile()</slot>
    <hints>
@@ -443,7 +452,7 @@
   </connection>
   <connection>
    <sender>actionSave_As</sender>
-   <signal>activated()</signal>
+   <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>saveFileAs()</slot>
    <hints>
@@ -459,7 +468,7 @@
   </connection>
   <connection>
    <sender>actionPrint</sender>
-   <signal>activated()</signal>
+   <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>print()</slot>
    <hints>
@@ -475,7 +484,7 @@
   </connection>
   <connection>
    <sender>actionClose_Imege</sender>
-   <signal>activated()</signal>
+   <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>clearImage()</slot>
    <hints>
@@ -491,7 +500,7 @@
   </connection>
   <connection>
    <sender>actionAbout</sender>
-   <signal>activated()</signal>
+   <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>aboutInfo()</slot>
    <hints>
@@ -507,7 +516,7 @@
   </connection>
   <connection>
    <sender>actionGeomdef_Help</sender>
-   <signal>activated()</signal>
+   <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>openHelp()</slot>
    <hints>
@@ -523,7 +532,7 @@
   </connection>
   <connection>
    <sender>actionWeb_Site</sender>
-   <signal>activated()</signal>
+   <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>openWeb()</slot>
    <hints>
