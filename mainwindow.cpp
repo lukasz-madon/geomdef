@@ -57,6 +57,21 @@ void MainWindow::changeEvent(QEvent *e)
 ////////////////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::loadFile()
         {
+    
+    if(isModifed==true){
+    switch( QMessageBox::warning( this,"Geomdef","Czy chcesz zapisac zmiany?",
+                                  "Tak", "Nie", 0, 0, 1 )){
+    case 0:
+        saveFileAs();
+        break;
+    case 1:
+
+        break;
+    }}
+
+    activateMenu();
+    isModifed=false;
+
             QString selectedFilter;
             QString fileName = QFileDialog::getOpenFileName(this,tr("Open File"), QDir::currentPath(),
                                                             "JPEG (*.jpg *.jpeg);;BMP (*.bmp);;PNG (*.png);;XPM (*.xpm);;XBM (*.xbm);;PPM (*.ppm);;TIFF (*.tif *.tiff);;XPM (*.xpm)",

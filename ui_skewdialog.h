@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'skewdialog.ui'
 **
-** Created: Sun 31. Jan 21:29:31 2010
+** Created: Mon 1. Feb 02:36:39 2010
 **      by: Qt User Interface Compiler version 4.6.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -44,7 +44,9 @@ public:
     {
         if (skewdialog->objectName().isEmpty())
             skewdialog->setObjectName(QString::fromUtf8("skewdialog"));
-        skewdialog->resize(556, 353);
+        skewdialog->resize(641, 375);
+        skewdialog->setMinimumSize(QSize(641, 375));
+        skewdialog->setMaximumSize(QSize(641, 375));
         gridLayout_2 = new QGridLayout(skewdialog);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         gridLayout = new QGridLayout();

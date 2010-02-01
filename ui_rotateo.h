@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'rotateo.ui'
 **
-** Created: Sun 31. Jan 21:29:31 2010
+** Created: Mon 1. Feb 02:36:39 2010
 **      by: Qt User Interface Compiler version 4.6.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -43,7 +43,9 @@ public:
     {
         if (rotateo->objectName().isEmpty())
             rotateo->setObjectName(QString::fromUtf8("rotateo"));
-        rotateo->resize(646, 346);
+        rotateo->resize(641, 375);
+        rotateo->setMinimumSize(QSize(641, 375));
+        rotateo->setMaximumSize(QSize(641, 375));
         gridLayout = new QGridLayout(rotateo);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         graphicsView = new QGraphicsView(rotateo);

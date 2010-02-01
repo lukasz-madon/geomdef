@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'about.ui'
 **
-** Created: Sun 31. Jan 21:29:31 2010
+** Created: Mon 1. Feb 02:44:04 2010
 **      by: Qt User Interface Compiler version 4.6.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -37,6 +37,9 @@ public:
         if (about->objectName().isEmpty())
             about->setObjectName(QString::fromUtf8("about"));
         about->resize(315, 246);
+        about->setMinimumSize(QSize(315, 246));
+        about->setMaximumSize(QSize(315, 246));
+        about->setBaseSize(QSize(0, 0));
         pushButton = new QPushButton(about);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(120, 210, 75, 23));

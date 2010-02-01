@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'rotate.ui'
 **
-** Created: Mon 1. Feb 01:41:26 2010
+** Created: Mon 1. Feb 02:36:39 2010
 **      by: Qt User Interface Compiler version 4.6.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -37,32 +37,34 @@ public:
     QLabel *label_2;
     QLabel *label;
     QDial *dial;
+    QSpinBox *spinBox;
     QGroupBox *groupBox;
     QLineEdit *lineEdit;
     QLineEdit *lineEdit_2;
-    QSpinBox *spinBox;
 
     void setupUi(QDialog *rotate)
     {
         if (rotate->objectName().isEmpty())
             rotate->setObjectName(QString::fromUtf8("rotate"));
-        rotate->resize(610, 360);
+        rotate->resize(641, 375);
+        rotate->setMinimumSize(QSize(641, 375));
+        rotate->setMaximumSize(QSize(641, 375));
         gridLayout = new QGridLayout(rotate);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         graphicsView = new QGraphicsView(rotate);
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
 
-        gridLayout->addWidget(graphicsView, 0, 0, 9, 1);
+        gridLayout->addWidget(graphicsView, 0, 0, 10, 1);
 
         pushButton = new QPushButton(rotate);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
 
-        gridLayout->addWidget(pushButton, 8, 2, 1, 1);
+        gridLayout->addWidget(pushButton, 9, 2, 1, 1);
 
         pushButton_2 = new QPushButton(rotate);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
 
-        gridLayout->addWidget(pushButton_2, 7, 2, 1, 1);
+        gridLayout->addWidget(pushButton_2, 8, 2, 1, 1);
 
         label_2 = new QLabel(rotate);
         label_2->setObjectName(QString::fromUtf8("label_2"));
@@ -78,8 +80,16 @@ public:
         dial->setObjectName(QString::fromUtf8("dial"));
         dial->setAutoFillBackground(false);
         dial->setMaximum(360);
+        dial->setTracking(true);
+        dial->setWrapping(false);
 
         gridLayout->addWidget(dial, 2, 2, 1, 1);
+
+        spinBox = new QSpinBox(rotate);
+        spinBox->setObjectName(QString::fromUtf8("spinBox"));
+        spinBox->setMaximum(360);
+
+        gridLayout->addWidget(spinBox, 3, 2, 1, 1);
 
         groupBox = new QGroupBox(rotate);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
@@ -91,12 +101,6 @@ public:
         lineEdit_2->setGeometry(QRect(10, 50, 91, 20));
 
         gridLayout->addWidget(groupBox, 4, 2, 3, 1);
-
-        spinBox = new QSpinBox(rotate);
-        spinBox->setObjectName(QString::fromUtf8("spinBox"));
-        spinBox->setMaximum(360);
-
-        gridLayout->addWidget(spinBox, 3, 2, 1, 1);
 
 
         retranslateUi(rotate);
